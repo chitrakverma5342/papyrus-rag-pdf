@@ -34,14 +34,13 @@ def index_document(pdf_path):
     if not chunks:
         return "Error: No text could be extracted from this PDF"
 
-    # Use PersistentClient to safely handle SQLite connections
+    # Using PersistentClient to safely handle SQLite connections
     client = chromadb.PersistentClient(path=CHROMA_DIR)
 
-    # Safely clear old embeddings using Chroma API instead of wiping files
     try:
         client.delete_collection("pdf_rag")
     except Exception:
-        pass  # Collection does not exist yet on first run
+        pass  
 
     # Index new document chunks
     Chroma.from_documents(

@@ -2,8 +2,8 @@
 import { useState , useRef } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/chitrak-verma-babb76421/"; // ← update
-const GITHUB_URL   = "https://github.com/chitrakverma5342/rag-backend";         // ← update
+const LINKEDIN_URL = "https://www.linkedin.com/in/chitrak-verma-babb76421/"; 
+const GITHUB_URL   = "https://github.com/chitrakverma5342/papyrus-rag-pdf";         
 
 
 
@@ -59,14 +59,10 @@ export default function App() {
   return (
     <div style={s.page}>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          HEADER
-          - Social icons pinned to top-left
-          - PAPYRUS canva image centered on the page
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      
       <header style={s.header}>
 
-        {/* Social icons — top left */}
+        
         <div style={s.socialIcons}>
           <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" style={s.iconLink} title="LinkedIn">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#215338c2" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -83,7 +79,7 @@ export default function App() {
           </a>
         </div>
 
-        {/* PAPYRUS — your Canva image, centered */}
+        
         <div style={s.logoWrap}>
           <img
             src="/papyrus.png"
@@ -94,20 +90,12 @@ export default function App() {
 
       </header>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TWO-COLUMN BODY
-          Left  → upload card + ask card
-          Right → flowchart JPEG with lottie overlapping
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      
       <div style={s.body}>
 
         {/* ── LEFT COLUMN ── */}
         <div style={s.leftCol}>
 
-          {/* UPLOAD CARD
-              - step1-doodle.png is your hand-drawn "Step 1: Upload your PDF" label
-              - file input lets the user pick a PDF
-              - button triggers handleUpload which calls Flask /upload */}
           <div style={s.card}>
             <img src="/step1-doodle.png" alt="Step 1 — Upload your PDF" style={s.doodle1} />
             <input
@@ -127,11 +115,6 @@ export default function App() {
             )}
           </div>
 
-          {/* ASK CARD
-              - step2-doodle.png is your hand-drawn "Step 2: Ask a question" label
-              - textarea is where the user types their question
-              - button triggers handleAsk which calls Flask /ask
-              - whole card fades to 60% opacity until a PDF is indexed (pdfReady) */}
           <div style={{ ...s.card, opacity: pdfReady ? 1 : 1 }}>
             <img src="/step2-doodle.png" alt="Step 2 — Ask a question" style={s.doodle2} />
             <textarea
@@ -152,21 +135,17 @@ export default function App() {
 
         </div>
 
-        {/* ── RIGHT COLUMN ──
-            Uses position:relative so the Lottie can be
-            position:absolute on top of the flowchart image */}
+        
         <div style={s.rightCol}>
 
-          {/* FLOWCHART — your hand-drawn JPEG */}
+          
           <img
             src="/flowchart.png"
             alt="RAG flowchart"
             style={s.flowchart}
           />
 
-          {/* LOTTIE — book animation overlapping bottom of flowchart
-              position:absolute places it on top of the image
-              adjust bottom/left/right values to move it around */}
+          
           <div style={s.lottieOverlay}>
             <DotLottieReact
               src="/animation.lottie"
@@ -179,11 +158,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ANSWER CARD
-          Only appears after the user asks a question.
-          Sits below both columns, full width.
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      
       {answer && (
         <div ref={answerRef} style={s.answerCard}>
           <h2 style={s.answerTitle}>Answer</h2>
@@ -196,10 +171,7 @@ export default function App() {
   );
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   STYLES
-   Each key maps directly to a JSX element above.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 const s = {
   crop: {
     width: "300px",
@@ -207,7 +179,7 @@ const s = {
     overflow: "hidden",
   },
 
-  /* full page — green gradient background */
+  
   page: {
     minHeight: "100vh",
     background: "linear-gradient(to right, #99dfbd 0%, #c9f8e1 8%, #ffffff 45%, #ffffff 80%, #d0f6e3 100%)",
@@ -216,17 +188,17 @@ const s = {
     fontFamily: "'Public Sans', Arial, sans-serif",
   },
 
-  /* ── HEADER ── */
+  
   header: {
-    position: "relative",          // lets us center the logo absolutely
+    position: "relative",          
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",      // keeps logo centered even with icons on left
+    justifyContent: "center",      
     marginBottom: "32px",
     minHeight: "80px",
   },
 
-  /* social icons — pinned to left inside header */
+ 
   socialIcons: {
     position: "absolute",
     left: 0,
@@ -244,14 +216,13 @@ const s = {
     transition: "opacity 0.2s",
   },
 
-  /* PAPYRUS image wrapper — centered */
+  
   logoWrap: {
     display: "flex",
     justifyContent: "center",
   },
 
-  /* PAPYRUS canva image
-     adjust maxHeight to make it bigger or smaller */
+  
   logo: {
     maxHeight: "110px",
     width: "auto",
@@ -266,10 +237,9 @@ const s = {
     alignItems: "flex-start",
     flexWrap: "wrap",
     margin: 0,
-    padding: 0,              // stacks vertically on small screens
+    padding: 0,              
   },
 
-  /* LEFT column — fixed width so cards don't grow too wide */
   leftCol: {
     flex: "0 0 600px",
     display: "flex",
@@ -352,7 +322,7 @@ const s = {
     outline: "none",
   },
 
-  /* RIGHT column — fills remaining space, relative so lottie can overlap */
+  
   rightCol: {
     flex: 1,
     display: "flex",
@@ -360,7 +330,7 @@ const s = {
     alignItems: "center",
   },
 
-  /* your hand-drawn flowchart JPEG — fills the right column */
+  /* my hand-drawn flowchart JPEG — fills the right column */
   flowchart: {
     width: "60%",
     height: "20%",
@@ -374,22 +344,20 @@ const s = {
     alignSelf: "flex-start"
   },
 
-  /* Lottie book animation — overlaps bottom-center of the flowchart
-     Tweak bottom/left/right/width/height to reposition */
+  
   lottieOverlay: {
-    position: "absolute",          // sits on top of flowchart image
-    bottom: "20px",                 // ← distance from bottom of right col
+    position: "absolute",          
+    bottom: "20px",                 
     right: "22%",
-    transform: "translateX(-50px)",                   // ← horizontally centered
-    //  // ← corrects for the 50% left offset
-    width: "700px",                // ← size of the book animation
+    transform: "translateX(-50px)",                   
+    width: "700px",                
     height: "700px",
     pointerEvents: "none", 
     overflow: "hidden",
-    opacity: 0.8     // so it doesn't block clicking below it
+    opacity: 0.8     
   },
 
-  /* ── ANSWER CARD ── full width, appears below both columns */
+
   answerCard: {
     backgroundColor: "rgba(255,255,255,0.85)",
     borderRadius: "14px",
@@ -414,5 +382,5 @@ const s = {
     fontSize: "0.97rem",
   },
 
-//test
+
 };
