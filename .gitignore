@@ -1,0 +1,24 @@
+# Environment files
+.env
+*.env
+.env.local
+backend/.env
+
+# Python & Vector DB
+**/__pycache__/
+*.pyc
+**/chroma_db/
+backend/chroma_db/
+backend/documents/
+
+# Junk / Word docs
+*.docx
+test.py
+index.py
+query.py
+
+# Node / Frontend
+**/node_modules/
+frontend/node_modules/
+**/build/
+frontend/build/
