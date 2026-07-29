@@ -13,6 +13,8 @@ An end-to-end Retrieval-Augmented Generation (RAG) web application that allows u
 * **Frontend App:** [https://papyrus-wheat.vercel.app]
 * **Backend API:** [https://rag-backend-53bt.onrender.com]
 
+The application will take some time(~40sec) to start Render due to cold start as the backend is running on free tier.
+
 ---
 
 ## ✨ Features
