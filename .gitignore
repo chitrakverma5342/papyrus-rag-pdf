@@ -4,21 +4,40 @@
 .env.local
 backend/.env
 
-# Python & Vector DB
+# Environment & Secret files
+.env
+*.env
+.env.*
+backend/.env
+
+# Python / Bytecode / Cache
+__pycache__/
 **/__pycache__/
-*.pyc
+*.py[cod]
+
+# Vector Database & Uploaded Documents
+chroma_db/
 **/chroma_db/
 backend/chroma_db/
+documents/
 backend/documents/
 
-# Junk / Word docs
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Junk / Unused scripts & documents
 *.docx
-test.py
-index.py
-query.py
+backend/RAG_README.docx
+backend/index.py
+backend/query.py
+backend/test.py
 
 # Node / Frontend
+node_modules/
 **/node_modules/
 frontend/node_modules/
-**/build/
 frontend/build/
+frontend/dist/
+.next/
